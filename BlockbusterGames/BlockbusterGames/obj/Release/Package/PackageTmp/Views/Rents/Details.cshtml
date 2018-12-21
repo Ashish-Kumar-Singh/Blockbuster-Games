@@ -1,0 +1,46 @@
+﻿@model BlockbusterGames.Models.Rent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Rent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Game.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Game.Name)
+        </dd>
+
+        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.No_Of_Days)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.No_Of_Days)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

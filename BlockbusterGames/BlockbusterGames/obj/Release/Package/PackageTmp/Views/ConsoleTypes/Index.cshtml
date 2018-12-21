@@ -1,0 +1,41 @@
+﻿@model IEnumerable<BlockbusterGames.Models.ConsoleType>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pricing Information</h2>
+
+<p>
+   
+    Games can be rented for a number of days and will be charged based on the console type.
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Console Type
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Console_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+             @Html.ActionLink("Edit", "Edit", new { id=item.ConsoleTypeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ConsoleTypeId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ConsoleTypeId })
+        </td>
+    </tr>
+}
+
+</table>
+<p> @Html.ActionLink("Add Consoles", "Create")</p>

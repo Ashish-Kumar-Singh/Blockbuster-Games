@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="BlockbusterContext-Web.config Connection String" description="BlockbusterContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-BlockbusterGames-20181202021942.mdf;Initial Catalog=aspnet-BlockbusterGames-20181202021942;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\blras\\Desktop\\College\\Year-3\\Advanced\ Internet\ Technologies\\BlockbusterGames\\BlockbusterGames\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BlockbusterContext']/@connectionString" />
+  </parameter>
+</parameters>

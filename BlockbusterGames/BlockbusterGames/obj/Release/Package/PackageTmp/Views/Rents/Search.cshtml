@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search For Rented Games by Id</h2>
+<div class="col-md-10">
+    <input type="text" id="RentId" size="5" />
+    <input type="submit" name="SearchButton" id="SearchButton" value="Search" />
+</div>
+<div id="divProcessing">
+    <p>Processing, please wait . . .<img src="../../Content/ajax-loader.gif" alt="Alternate Text" height="50"/></p>
+</div>
+<br />
+<div id="divResult"></div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#divProcessing').hide();
+            $('#SearchButton').click(function () {
+                search();
+            });
+        });
+
+        function search() {
+            $('#divResult').empty();
+            $('#divProcessing').show();
+            var rentid = $('#RentId').val();
+            var url = "../api/Rents/" + rentid;
+            $.ajax({
+                url: url,
+                type: "GET",
+                dataType: "json",
+                success: function (resp) {
+                    //Hide the busy gif:
+                    $("#divProcessing").hide();
+                    $("<h3>Results</h3>").appendTo('#divResult');
+                    $("#divResult").append("<p> Customer Id: " + resp.CustomerId + "<br/>GameId : "
+                        + resp.GameId + "<br/>No fo Days Rented: " + resp.No_Of_Days + "<br/>");
+                    $("#divResult").append("</p>");
+                }
+            })
+        }
+    </script>
+    
+    }
+
